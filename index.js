@@ -3,24 +3,31 @@ console.log('Welcome to the calculator!');
 console.log('==========================');
 console.log('Please enter the operator:');
 const op = readline.prompt();
-console.log('Please enter your first number:');
-const response = readline.prompt();
-console.log('Please enter your second number:');
-const response_2 = readline.prompt();
-var out
+console.log('How many numbers would you like to ' + op + '?')
+const n = readline.prompt();
+let arr = [];
+for (let i = 0; i < n; i++) {
+    console.log('Please enter number ' + (i+1) +': ');
+    arr[i] = +readline.prompt();
+}
+var out = arr[0];
 switch (op) {
     case '+':
-        out = +response + +response_2;
-        break;
+        for (let i = 1; i < n; i++) {
+            out = out + arr[i]
+        } break;
     case '-':
-        out = +response - +response_2;
-        break;
+        for (let i = 1; i < n; i++) {
+            out = out - arr[i]
+        } break;
     case '/':
-        out = +response / +response_2;
-        break;
+        for (let i = 1; i < n; i++) {
+            out = out / arr[i]
+        } break;
     case '*':
-        out = +response * +response_2;
-        break;
+        for (let i = 1; i < n; i++) {
+            out = out * arr[i]
+        } break;
     default:
         throw ('Not a valid operator.')
 }
